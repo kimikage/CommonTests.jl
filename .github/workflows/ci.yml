@@ -1,0 +1,28 @@
+name: Unit test
+
+on:
+  create:
+    tags:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        julia-version: ['1.0', '1', 'nightly']
+        os: [ubuntu-latest]
+        julia-arch: [x64]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Set up Julia"
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: ${{ matrix.julia-version }}
+          arch: ${{ matrix.julia-arch }}
+      - name: "Unit Test"
+        uses: julia-actions/julia-runtest@master
+

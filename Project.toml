@@ -1,0 +1,6 @@
+name = "CommonTests"
+uuid = "e5b8ff6e-02aa-40cc-9f9c-a3af0ef6ef0b"
+version = "0.1.0"
+
+[deps]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
